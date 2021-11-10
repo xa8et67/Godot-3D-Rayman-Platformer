@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://models/hero/hero.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/characters/Hero/CameraModel.gd" type="Script" id=2]
+[ext_resource path="res://scenes/characters/Hero/HeroModel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/characters/Hero/HeroController.gd" type="Script" id=4]
+[ext_resource path="res://scenes/characters/Hero/CameraController.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.560626
+height = 2.19089
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.165203
+height = 2.24695
+
+[sub_resource type="CylinderShape" id=3]
+height = 0.608812
+
+[node name="HeroBody" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -3 )
+collision_layer = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+camera_nodepath = NodePath("CameraPivot/CameraArm/Camera")
+accel = 20.0
+speed = 10.0
+air_accel = 3.0
+jump_power = 1500.0
+max_fall_vel = 5
+
+[node name="HeroController" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="hero3DV" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.460723, -1.38763, 0 )
+
+[node name="MainCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.413501, 0 )
+shape = SubResource( 1 )
+
+[node name="SwordCollison" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.872616, 0.801307, 0.619704 )
+shape = SubResource( 2 )
+
+[node name="ShieldCollison" type="CollisionShape" parent="."]
+transform = Transform( -4.3346e-08, -0.991642, -0.129021, 1, -4.37114e-08, 0, -5.63967e-09, -0.129021, 0.991642, 0.928891, 0.0117525, 0.619704 )
+shape = SubResource( 3 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.06303, 0 )
+
+[node name="CameraArm" type="SpringArm" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+spring_length = 5.0
+
+[node name="Camera" type="Camera" parent="CameraPivot/CameraArm"]
+current = true
+script = ExtResource( 2 )
+hero_nodepath = NodePath("../../..")
+pivot_nodepath = NodePath("../..")
+min_pitch = -50.0
+max_pitch = 50.0
+
+[node name="CameraController" type="Node" parent="CameraPivot/CameraArm/Camera"]
+script = ExtResource( 5 )

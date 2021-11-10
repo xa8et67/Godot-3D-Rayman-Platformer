@@ -8,9 +8,32 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "CameraController",
+"language": "GDScript",
+"path": "res://models/hero/scenes/characters/Hero/CameraController.gd"
+}, {
+"base": "Camera",
+"class": "CameraModel",
+"language": "GDScript",
+"path": "res://models/hero/scenes/characters/Hero/CameraModel.gd"
+}, {
+"base": "KinematicBody",
+"class": "HeroModel",
+"language": "GDScript",
+"path": "res://models/hero/scenes/characters/Hero/HeroModel.gd"
+} ]
+_global_script_class_icons={
+"CameraController": "",
+"CameraModel": "",
+"HeroModel": ""
+}
+
 [application]
 
 config/name="Rayman Platformer"
+run/main_scene="res://scenes/tests/TestLevel.tscn"
 config/icon="res://icon.png"
 
 [debug]
