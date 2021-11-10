@@ -8,7 +8,7 @@ func _ready():
 func _process(_delta):
 	# get the inputs
 	var right_left = Funcs.get_input_delta("move_right", "move_left")
-	var up_down = Funcs.get_input_delta("move_forward", "move_back")
+	var up_down = Funcs.get_input_delta("move_forward", "move_backward")
 
 	# get move axis from player
 	var player_forward = Funcs.get_forward(model)
@@ -21,8 +21,7 @@ func _process(_delta):
 	dir.y = 0
 	model.move_dir = dir.normalized()
 
-	model.jumping = model.is_on_floor() \
-	 and Input.is_action_just_pressed("jump")
+	model.jumping = model.is_on_floor() and Input.is_action_just_pressed("jump")
 
 func _physics_process(delta):
 	# Move the hero

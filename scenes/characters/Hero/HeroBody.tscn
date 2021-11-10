@@ -24,7 +24,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
-camera_nodepath = NodePath("CameraPivot/CameraArm/Camera")
 accel = 20.0
 speed = 10.0
 air_accel = 3.0
@@ -53,8 +52,8 @@ shape = SubResource( 3 )
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.06303, 0 )
 
 [node name="CameraArm" type="SpringArm" parent="CameraPivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-spring_length = 5.0
+spring_length = 7.0
+margin = 0.2
 
 [node name="Camera" type="Camera" parent="CameraPivot/CameraArm"]
 current = true
