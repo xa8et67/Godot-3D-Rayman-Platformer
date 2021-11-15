@@ -20,8 +20,8 @@ func _process(_delta):
 
 	dir.y = 0
 	model.move_dir = dir.normalized()
-
-	model.jumping = model.is_on_floor() and Input.is_action_just_pressed("jump")
+	var j := Input.is_action_just_pressed("jump")
+	model.jumping = j and model.is_on_floor()
 
 func _physics_process(delta):
 	# Move the hero

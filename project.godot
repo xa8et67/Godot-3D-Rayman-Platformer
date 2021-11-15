@@ -19,15 +19,27 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/characters/Hero/CameraModel.gd"
 }, {
-"base": "KinematicBody",
+"base": "PlatformCharacterModel",
 "class": "HeroModel",
 "language": "GDScript",
 "path": "res://scenes/characters/Hero/HeroModel.gd"
+}, {
+"base": "KinematicBody",
+"class": "PlatformCharacterModel",
+"language": "GDScript",
+"path": "res://code/controllers/PlatformCharacterModel.gd"
+}, {
+"base": "Node",
+"class": "PlatformCharacterMoveController",
+"language": "GDScript",
+"path": "res://code/controllers/PlatformCharacterMoveController.gd"
 } ]
 _global_script_class_icons={
 "CameraController": "",
 "CameraModel": "",
-"HeroModel": ""
+"HeroModel": "",
+"PlatformCharacterModel": "",
+"PlatformCharacterMoveController": ""
 }
 
 [application]
