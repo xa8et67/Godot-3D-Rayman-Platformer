@@ -8,3 +8,7 @@ export_presets.cfg
 .mono/
 data_*/
 .vscode/
+
+# gd-plug
+/.plugged/
+/addons/
